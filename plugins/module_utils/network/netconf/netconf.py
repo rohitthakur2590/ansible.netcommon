@@ -133,6 +133,7 @@ def sanitize_xml(data):
                     attribute.pop(key)
     return to_text(tostring(tree), errors="surrogate_then_replace").strip()
 
+
 def copy_config(module, source, target):
     conn = get_connection(module)
     try:
@@ -140,4 +141,3 @@ def copy_config(module, source, target):
     except ConnectionError as e:
         module.fail_json(msg=to_text(e, errors="surrogate_then_replace").strip())
     return response
-
